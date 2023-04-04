@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
 
 export default function App() {
   const [email, onChangeEmail] = React.useState('');
@@ -19,6 +19,10 @@ export default function App() {
         onChangeText={onChangePw}
         value={pw}
         placeholder={"password"}
+      />
+      <Button
+        title="Login"
+        onPress={() => Alert.alert('Login Button is pressed.')}
       />
     </View>
   );
