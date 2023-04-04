@@ -1,45 +1,28 @@
 
 import React from 'react'
-import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
+import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import LogInView from './components/LogInView';
+import SignUpView from './components/SignUpView';
 
 export default function App() {
-  const [email, onChangeEmail] = React.useState('');
-  const [pw, onChangePw] = React.useState('');
+  const [view, setView] = React.useState('로그인');
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeEmail}
-        value={email}
-        placeholder={"email"}
-      />
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangePw}
-        value={pw}
-        placeholder={"password"}
-      />
-      <Button
-        title="Login"
-        onPress={() => Alert.alert('Login Button is pressed.')}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Thanks to</Text>
+      { view === '로그인' && <LogInView setView={setView} /> }
+      { view === '회원가입' && <SignUpView setView={setView} /> }
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  input: {
-    width: '65%',
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
+  title: {
+    fontSize: 16,
+    textAlign: 'center'
+  }
 });
