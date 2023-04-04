@@ -28,7 +28,7 @@ export default function LogInView({ setView }) {
       />
       <Button
         title="회원가입"
-        onPress={() => Alert('회원가입이 완료되었습니다.')}
+        onPress={() => Alert.alert('회원가입이 완료되었습니다.')}
       />
     </View>
   );
