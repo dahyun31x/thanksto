@@ -2,7 +2,7 @@
 import React from 'react'
 import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
 
-export default function LogInView({ setView }) {
+export default function LogInView({ navigation }) {
   const [email, onChangeEmail] = React.useState('');
   const [pw, onChangePw] = React.useState('');
 
@@ -23,10 +23,10 @@ export default function LogInView({ setView }) {
       <Button
         title="로그인"
         onPress={() => Alert.alert('로그인 버튼이 클릭되었습니다.')}
-      />
+        />
       <Button
         title="회원가입"
-        onPress={() => setView('회원가입')}
+        onPress={() => navigation.navigate('회원가입')}
       />
     </View>
   );

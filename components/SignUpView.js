@@ -1,10 +1,11 @@
-
 import React from 'react'
 import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
 
-export default function LogInView({ setView }) {
+export default function LogInView({ navigation }) {
   const [email, onChangeEmail] = React.useState('');
   const [pw, onChangePw] = React.useState('');
+  const [confimrPw, onChangeConfirmPw] = React.useState('');
+
 
   return (
     <View style={styles.container}>
@@ -22,13 +23,13 @@ export default function LogInView({ setView }) {
       />
       <TextInput
         style={styles.input}
-        onChangeText={onChangePw}
-        value={pw}
+        onChangeText={onChangeConfirmPw}
+        value={confimrPw}
         placeholder={"confirm password"}
       />
       <Button
         title="회원가입"
-        onPress={() => Alert.alert('회원가입이 완료되었습니다.')}
+        onPress={() => Alert.alert('로그인 버튼이 클릭되었습니다.')}
       />
     </View>
   );

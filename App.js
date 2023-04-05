@@ -4,15 +4,19 @@ import { StyleSheet, SafeAreaView, Text } from 'react-native';
 import LogInView from './components/LogInView';
 import SignUpView from './components/SignUpView';
 
-export default function App() {
-  const [view, setView] = React.useState('로그인');
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
+const Stack = createNativeStackNavigator(); 
+
+export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Thanks to</Text>
-      { view === '로그인' && <LogInView setView={setView} /> }
-      { view === '회원가입' && <SignUpView setView={setView} /> }
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="로그인" component={LogInView}/>
+        <Stack.Screen name="회원가입" component={SignUpView}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
