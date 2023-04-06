@@ -1,7 +1,16 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+
+import { 
+  FB_APIKEY, 
+  FB_AUTH_DOMAIN, 
+  FB_DATABASE_URL, 
+  FB_PROJECT_ID, 
+  FB_STORAGE_BUCKET, 
+  FB_MESSAGEING_SENDER_ID, 
+  FB_APP_ID, 
+  FB_MEASUREMENT_ID 
+} from '@env'
 
 const firebaseConfig = {
   apiKey: FB_APIKEY,
@@ -14,7 +23,5 @@ const firebaseConfig = {
   measurementId: FB_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-export const FIREBASE_APP = initializeApp(firebaseConfig);
-export const FIRESTORE_DB = getFirestore(FIREBASE_APP);
-export const FIREBASE_AUTH = getAuth(FIREBASE_APP);
+export const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseAuth = getAuth(firebaseApp);
