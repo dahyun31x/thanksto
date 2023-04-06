@@ -1,8 +1,8 @@
 
 import React from 'react'
 import { StyleSheet } from 'react-native';
-import LogInView from './components/LogInView';
-import SignUpView from './components/SignUpView';
+import LogIn from './screens/LogIn';
+import SignUp from './screens/SignUp';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,8 +13,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="로그인" component={LogInView}/>
-        <Stack.Screen name="회원가입" component={SignUpView}/>
+        <Stack.Screen name="로그인" component={LogIn}/>
+        <Stack.Screen name="회원가입" component={SignUp}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
