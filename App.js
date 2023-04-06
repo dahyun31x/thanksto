@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import LogInView from './components/LogInView';
 import SignUpView from './components/SignUpView';
 
