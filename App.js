@@ -1,20 +1,26 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet } from 'react-native';
-import LogIn from './screens/LogIn';
 import SignUp from './screens/SignUp';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import SignIn from './screens/SignIn';
 
 const Stack = createNativeStackNavigator(); 
 
 export default function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="로그인" component={LogIn}/>
-        <Stack.Screen name="회원가입" component={SignUp}/>
+        <Stack.Screen name="로그인">
+          {(_) => <SignIn user={user} />}
+        </Stack.Screen>
+        <Stack.Screen name="회원가입">
+          {(_) => <SignUp user={user} setUser={setUser} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

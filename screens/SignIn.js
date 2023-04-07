@@ -1,22 +1,24 @@
-import React from 'react'
-import { getAuth } from 'firebase/auth';
-import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
 
-export default function SignUp({ user }) {
+import React from 'react'
+import { StyleSheet, TextInput, View, Button, Alert, Text } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native'
+
+
+export default function SignIn({ user, setUser }) {
   const [email, setEmail] = React.useState('');
   const [pw, setPw] = React.useState('');
-  const [confimrPw, setConfirmPw] = React.useState('');
+  const navigation = useNavigation();
 
-  const handleSignUp = () => {
-    if (pw === confirmPw) {
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, email, pw)
-        .then((userCredentials) => {
-          console.log(userCredentials.user.email + '회원가입이 완료되었습니다.');
-        })
-        .catch(err => console.log(err))
-    }
+  const handleSignIn = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, pw)
+      .then((userCredentials) => {
+        console.log(userCredentials.user.email + '회원가입이 완료되었습니다.');
+      })
+      .catch(err => console.log(err))
   }
+  
 
   return (
     <View style={styles.container}>
@@ -32,15 +34,13 @@ export default function SignUp({ user }) {
         value={pw}
         placeholder={"password"}
       />
-      <TextInput
-        style={styles.input}
-        onChangeText={setConfirmPw}
-        value={confimrPw}
-        placeholder={"confirm password"}
-      />
+      <Button
+        title="로그인"
+        onPress={() => Alert.alert('로그인 버튼이 클릭되었습니다.')}
+        />
       <Button
         title="회원가입"
-        onPress={handleSignUp}
+        onPress={() => navigation.navigate("회원가입")}
       />
       <Text style={styles.text}>{ user !== null ? user.email + '\n회원가입이 완료되었습니다. ' : '' }</Text>
     </View>
@@ -59,4 +59,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
+  text: {
+    textAlign: 'center'
+  }
 });
