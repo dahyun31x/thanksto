@@ -23,5 +23,5 @@ const firebaseConfig = {
   measurementId: FB_MEASUREMENT_ID
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
-export const firebaseAuth = getAuth(firebaseApp);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
