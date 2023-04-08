@@ -1,8 +1,9 @@
 
 import React from 'react'
 import { StyleSheet, TextInput, View, Button, Alert, Text } from 'react-native';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native'
+import { auth } from '../firebaseConfig';
 
 
 export default function SignIn({ user, setUser }) {
@@ -11,12 +12,11 @@ export default function SignIn({ user, setUser }) {
   const navigation = useNavigation();
 
   const handleSignIn = () => {
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, pw)
-      .then((userCredentials) => {
-        console.log(userCredentials.user.email + '회원가입이 완료되었습니다.');
-      })
-      .catch(err => console.log(err))
+    .then((userCredentials) => {
+      navigation.navigate('프로필')
+    })
+    .catch(err => console.log(err))
   }
   
 
@@ -36,7 +36,7 @@ export default function SignIn({ user, setUser }) {
       />
       <Button
         title="로그인"
-        onPress={() => Alert.alert('로그인 버튼이 클릭되었습니다.')}
+        onPress={handleSignIn}
         />
       <Button
         title="회원가입"

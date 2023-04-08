@@ -6,6 +6,7 @@ import SignUp from './screens/SignUp';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import SignIn from './screens/SignIn';
+import Profile from './screens/Profile';
 
 const Stack = createNativeStackNavigator(); 
 
@@ -20,6 +21,9 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen name="회원가입">
           {(_) => <SignUp user={user} setUser={setUser} />}
+        </Stack.Screen>
+        <Stack.Screen name="프로필">
+          {(_) => <Profile user={user} setUser={setUser}/>}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
