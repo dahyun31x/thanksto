@@ -1,17 +1,17 @@
 
 import React from 'react'
-import { StyleSheet, View, Button, Alert, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, Button, Alert, Text } from 'react-native';
 
 
 export default function Profile({ user, setUser }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Button
         title="로그아웃"
         onPress={() => Alert.alert('로그아웃 버튼이 클릭되었습니다.')}
         />
       <Text style={styles.text}>{user}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 

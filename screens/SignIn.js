@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { StyleSheet, TextInput, View, Button, Alert, Text } from 'react-native';
+import { StyleSheet, TextInput, SafeAreaView, Button, Text } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native'
 import { auth } from '../firebaseConfig';
@@ -21,7 +21,7 @@ export default function SignIn({ user, setUser }) {
   
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
@@ -43,7 +43,7 @@ export default function SignIn({ user, setUser }) {
         onPress={() => navigation.navigate("회원가입")}
       />
       <Text style={styles.text}>{ user !== null ? user.email + '\n회원가입이 완료되었습니다. ' : '' }</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 

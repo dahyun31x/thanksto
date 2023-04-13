@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAuth } from 'firebase/auth';
-import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import { StyleSheet, TextInput, SafeAreaView, Button, Text } from 'react-native';
 
 export default function SignUp({ user }) {
   const [email, setEmail] = React.useState('');
@@ -19,7 +19,7 @@ export default function SignUp({ user }) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
@@ -43,7 +43,7 @@ export default function SignUp({ user }) {
         onPress={handleSignUp}
       />
       <Text style={styles.text}>{ user !== null ? user.email + '\n회원가입이 완료되었습니다. ' : '' }</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
