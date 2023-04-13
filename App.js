@@ -22,7 +22,7 @@ export default function App() {
         <Stack.Screen name="회원가입">
           {(_) => <SignUp user={user} setUser={setUser} />}
         </Stack.Screen>
-        <Stack.Screen name="프로필">
+        <Stack.Screen name="프로필" options={{ title: "Thanks to", headerBackVisible: false }}>
           {(_) => <Profile user={user} setUser={setUser}/>}
         </Stack.Screen>
       </Stack.Navigator>
