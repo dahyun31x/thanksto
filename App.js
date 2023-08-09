@@ -1,29 +1,26 @@
+// [ ] 에러 고치기 
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+
+import Login from './pages/screens/Login'
+import Main from './pages/screens/Main'
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Main" component={Main} />
+        </Stack.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-      <Text>📝 메모장 앱 📝</Text>
-
-      <Button 
-        title="애플 로그인"
-        accessibilityLabel="애플 로그인"
-      />
-      <Button 
-        title="카카오 로그인"
-        accessibilityLabel="카카오 로그인"
-      />
-    </View>
+    </>
   );
 }
 
-// StatusBar가 꼭 필요한건지
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
