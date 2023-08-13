@@ -1,9 +1,17 @@
 {
   "name": "thanksto-be",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "감사일기장 백엔드",
   "main": "index.js",
   "repository": "https://github.com/dahyun31x/thanksto",
   "author": "김다현",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@types/node": "^20.4.10",
+    "fastify": "^4.21.0"
+  }
 }
