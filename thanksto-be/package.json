@@ -1,0 +1,9 @@
+{
+  "name": "thanksto-be",
+  "version": "1.0.0",
+  "description": "감사일기장 백엔드",
+  "main": "index.js",
+  "repository": "https://github.com/dahyun31x/thanksto",
+  "author": "김다현",
+  "license": "MIT"
+}
