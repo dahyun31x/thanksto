@@ -1,5 +1,5 @@
 node_modules
 
 # thanksto-be
-./thanksto-be/node_modules
-./thanksto-be/dist/*
+thanksto-be/node_modules
+thanksto-be/dist
