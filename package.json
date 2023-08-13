@@ -1,4 +1,7 @@
 {
   "private": true,
-  "workspaces": ["thanksto-rn", "thanksto-be"]
+  "workspaces": [
+    "thanksto-rn",
+    "thanksto-be"
+  ]
 }
